@@ -1,0 +1,20 @@
+.title {
+  margin-bottom: 10px;
+  font-size: 20px;
+}
+
+.container {
+  margin-bottom: 100px;
+  display: flex;
+}
+
+.listContainer {
+  display: flex;
+  font-family: Roboto;
+  gap:10px;
+  flex-wrap: wrap;
+}
+.list {
+  display: flex;
+  justify-content: space-evenly;
+}
