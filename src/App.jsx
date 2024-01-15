@@ -38,29 +38,31 @@ export const App = () => {
   };
 
   const fetchCredit = async (tvShowId) => {
-    const casting = await TVSshowAPI.fetchCredit(tvShowId);
-    if (casting.length > 0) {
-      setCastingList(casting);
+    try {
+      const casting = await TVSshowAPI.fetchCredit(tvShowId);
+      if (casting.length > 0) {
+        setCastingList(casting);
+      }
+    } catch (error) {
+      alert("Erreur durant la recherche du castimg");
     }
   };
   useEffect(() => {
     fetchPopulars();
   }, []);
-  
+
   useEffect(() => {
     if (currentTVShow) {
       fetchRecommendations(currentTVShow.id);
       // fetchCredit(currentTVShow.id);
     }
   }, [currentTVShow]);
-  
+
   useEffect(() => {
     if (currentTVShow) {
       fetchCredit(currentTVShow.id);
     }
   }, [currentTVShow]);
-  
-  console.log(castingList, "io");
 
   async function searchTvShow(tvShowName) {
     try {
@@ -88,7 +90,7 @@ export const App = () => {
             <div className="col-4">
               <Logo
                 image={logo}
-                title="Whatowatch"
+                title="Watowatch"
                 subtitle="Find a show you may like"
               />
             </div>
